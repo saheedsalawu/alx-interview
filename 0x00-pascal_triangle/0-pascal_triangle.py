@@ -20,7 +20,7 @@ def pascal_triangle(n):
         for nextNum in helperList:
             subList.extend(prevNum + nextNum)
             prevNum = nextNum
-        subList.append(1)
+        subList.extend(1)
         n -= 1
 
     return result
