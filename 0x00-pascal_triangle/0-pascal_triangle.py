@@ -11,15 +11,22 @@ def pascal_triangle(n):
     """
 
 def pascal_triangle(n):
-   for i in range(n+1):
-      for j in range(n-i):
-         print(' ', end='')
+    """
+    This function returns a list of lists of integers
+    representing the Pascal’s triangle of n.
+    """
 
-      A = 1
-      for j in range(1, i+1):
-         print(A, ' ', sep='', end='')
-         A = A * (i - j) // j
-      prnt()
+    subList = [1]
+    result = []
+    while n > 0:
+        result.append(subList)
+        helperList = subList.copy()
+        prevNum = 0
+        subList = []
+        for nextNum in helperList:
+            subList.append(prevNum + nextNum)
+            prevNum = nextNum
+        subList.append(1)
+        n -= 1
 
-n = 6
-pascal_triangle(n)
+    return result
