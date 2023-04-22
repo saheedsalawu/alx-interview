@@ -12,10 +12,10 @@ def pascal_triangle(n):
 
     subList = [1]
     result = []
-    while n > 1:
+    while n > 0:
         result.append(subList)
         helperList = subList.copy()
-        prevNum = 1
+        prevNum = 0
         subList = []
         for nextNum in helperList:
             subList.append(prevNum + nextNum)
