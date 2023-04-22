@@ -13,14 +13,14 @@ def pascal_triangle(n):
     subList = [1]
     result = []
     while n > 0:
-        result.insert(subList)
+        result.append(subList)
         helperList = subList.copy()
         prevNum = 0
         subList = []
         for nextNum in helperList:
-            subList.insert(prevNum + nextNum)
+            subList.append(prevNum + nextNum)
             prevNum = nextNum
-        subList.insert(1)
+        subList.append(1)
         n -= 1
 
     return result
