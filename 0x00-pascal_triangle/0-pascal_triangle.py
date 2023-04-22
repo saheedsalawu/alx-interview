@@ -6,12 +6,6 @@ This is a module used to provides the pascal triangle function.
 
 def pascal_triangle(n):
     """
-    This function will return list of lists of integers
-    representing the Pascal’s triangle of n.
-    """
-
-def pascal_triangle(n):
-    """
     This function returns a list of lists of integers
     representing the Pascal’s triangle of n.
     """
