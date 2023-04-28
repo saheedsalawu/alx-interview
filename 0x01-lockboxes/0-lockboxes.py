@@ -1,48 +1,26 @@
 #!/usr/bin/python3
-
 """
-This modeule supplies the function `canUnlockAll` which
-analyses a list of lockboxes
+You have n number of locked boxes in front of you.
+Each box is numbered sequentially
+from 0 to n - 1 and each box may
+contain keys to the other boxes.
 """
-
-
-def checkBox(boxes, currentBox, register):
-    """
-    this function checks and unlocks other locked boxes
-    """
-    # analyses each key in a current box and it's corresponding box
-    for key in currentBox:
-        if key >= len(boxes):
-            # if the current key has no box in the list of boxes
-            # the loop skips that key
-            continue
-        # checks if the box corresponding to this
-        # current key is locked or unlocked
-        if not register[key]:
-            # if the box is locked, it is unlocked and entered
-            # to be further analysed
-            register[key] = True
-            # updates the register with the state of the newly unlocked boxes
-            register = checkBox(boxes, boxes[key], register)
-    # returns the updated register
-    return register
 
 
 def canUnlockAll(boxes):
     """
-    This function checks is all boxes in a list of
-    locked boxes can be unlocked.
+     a method that determines if all the boxes can be opened.
+    :param boxes:
+    :return: True or False
     """
-    # Create a True/False register representing the Locked/Unlocked
-    # state of each box
-    register = [False for lowestFactor in range(len(boxes))]
-    # the first box is always open
-    register[0] = True
-    if len(boxes[0]) == 0:
-        # if the first box has no keys, then no other box can be unlocked
+    if not boxes or type(boxes) is not list:
         return False
-    # updates the register with the state of the newly unlocked boxes
-    register = checkBox(boxes, boxes[0], register)
-    # checks if all the values in the register are true(unlocked)
-    # and returns True if they are, otherwise False
-    return all(register)
+
+    unlocked = [0]
+    for n in unlocked:
+        for key in boxes[n]:
+            if key not in unlocked and key < len(boxes):
+                unlocked.append(key)
+    if len(unlocked) == len(boxes):
+        return True
+    return False
